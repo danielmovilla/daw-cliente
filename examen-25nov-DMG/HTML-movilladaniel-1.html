@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML>
+<HTML>
+
+<HEAD>
+    <TITLE>PRIMER EJERCICIO</TITLE> <!-- Daniel Movilla Guillén 2º DAW -->
+</HEAD>
+
+<BODY>
+    <FORM name="humano">
+        <center>
+            <p>Se trata de diseñar un pequeño formulario que detecte</p>
+            <p>en el lado del cliente la presencia o no de una máquina</p> <!-- Caja a meter texto -->
+            <input type="text" name="referencia" align="center" style="font-size:100%;text-align:center;font-family:fantasy;">
+
+            <h3 align="center">Introduzca en la siguiente caja los caracteres de la caja superior</h3> <!-- Caja a validar texto -->
+            <input type="text" name="cliente" style="font-size:100%;text-align:center;" autofocus><br><br>
+
+            <input type="button" value="Aceptar" onclick="validador()">
+        </center>
+    </form>
+
+    <script>
+        var limpieza = ""; // Limpiamos caja de texto
+        document.getElementsByName("cliente").value = limpieza;
+
+        var num = []; // Array con números
+        var captcha = []; // Array con captcha
+        var letra = "";
+            
+            for (contador = 0; contador < 8; contador++) {
+
+                numero = Math.floor(Math.random() * 57) + 65; // Entre 65 y 122
+                alert(numero); // Alert del numero
+
+                if (numero >= 91 && numero <= 96) {
+                    contador--;
+                    alert("Este número no puede entrar. Repetir proceso. " + numero);
+                } else {
+                    num.push(numero); // Sacamos número
+                }
+
+            }
+
+            alert ("El array elegido es " + num); // Array con los 8 dígitos
+
+            for (let i = 0; i < num.length; i++) {
+                numASCII = num[i];
+                alert ("Número " + i + " es " + numASCII); // Sacamos cada número
+            
+                letra = String.fromCharCode(numASCII); // Hacemos cambio
+                alert ("Letra " + i + " es " + letra); // Sacamos la letra
+
+                captcha.push(letra);
+            }
+
+            alert("El captcha es " + captcha);
+
+            for (t = 0; t < captcha.length; t++) {
+                alert(captcha[t]);
+                document.getElementsByName("referencia").value += captcha[t]; // Introducimos valores en la caja
+            }
+
+        function validador() {
+
+            captchafin = document.getElementsByName("referencia").value; // Extraemos la cadena de texto de validador
+            textocliente = document.getElementsByName("cliente").value; // Extraemos la cadena de texto de cliente
+            if (textocliente == captchafin) { // Comprobamos el texto
+                alert("Bienvenido al programa."); // Damos permiso
+            } else {
+                alert("Eres un robot. Acceso denegado."); // Denegamos permiso
+            }
+
+        }
+	</script>
+
+</body>
+</html>

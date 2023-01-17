@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Controlando elementos y Programando</title>
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<center>
+		<h2>GENERACION DE FIGURAS GEOMETRICAS</h2>
+		<h3>TRIANGULO</h3> <!-- Daniel Movilla Guillén 2º DAW -->
+
+		<form name="configuracion">
+			<div>
+				<h3>CONFIGURACION</h3>
+				<h4>Opciones del modelo:</h4><br />
+				<table>
+					<tr>
+						<th>Filas</th>
+						<th>Caracter</th>
+					</tr>
+					<tr>
+						<td><input type="radio" name="Fila" value="25" />25</td>
+						<td><input type="radio" name="caracter" value="*" />Asterisco</td>
+					</tr>
+					<tr>
+						<td><input type="radio" name="Fila" value="15" />15</td>
+						<td><input type="radio" name="caracter" value="$" />Dolar</td>
+					</tr>
+					<tr>
+						<td><input type="radio" name="Fila" value="10" />10</td>
+						<td><input type="radio" name="caracter" value="%" />Porcentaje</td>
+					</tr>
+					<tr>
+						<td><input type="radio" name="Fila" value="5" />5</td>
+						<td><input type="radio" name="caracter" value="K" />Letra K<br /></td>
+					</tr>
+				</table><br><br>
+
+
+				<div name="datos">
+					<h4> VISUALIZACION DE LA FIGURA: </h4><textarea name='visualizador' cols='13' rows='6'></textarea>
+				</div>
+				<p></p>
+			</div>
+		</form>
+
+		<script>
+			var informacion = "";
+			var textareaCol = "";
+			var textareaFil = "";
+
+			for (m = 0; m < 4; m++) { // Para comprobar cuál esta checked en caracter
+				if (fila[0].checked) { // Sacamos asteriscos
+					letraprint = "*";
+				}
+				if (fila[1].checked) { // Sacamos dólar
+					letraprint = "$";
+				}
+				if (fila[2].checked) { // Sacamos porcentaje
+					letraprint = "%";
+				}
+				if (fila[3].checked) { // Sacamos letra K
+					letraprint = "K";
+				}
+			}
+
+			for (k = 0; k < 4; k++) { // Para comprobar cuál esta checked en filas
+				if (fila[0].checked) { // Sacamos 25
+					rangofilas = 25;
+					textareaCol = 51;
+					textareaFil = 24;
+				}
+				if (fila[1].checked) { // Sacamos 15
+					rangofilas = 15;
+					textareaCol = 31;
+					textareaFil = 14;
+				}
+				if (fila[2].checked) { // Sacamos 10
+					rangofilas = 10;
+					textareaCol = 21;
+					textareaFil = 9;
+				}
+				if (fila[3].checked) { // Sacamos 5
+					rangofilas = 5;
+					textareaCol = 11;
+					textareaFil = 4;
+				}
+			}
+
+			function Poligono(rangofilas, rangocolums, letraprint) { // Objeto poligono
+				this.rangofilas = rangofilas;
+				this.rangocolums = rangocolums;
+				this.letraprint = letraprint;
+
+				function datospoligono() {
+					rangocolums = rangofilas * 2; // Debido a que las columnas son el doble que las filas
+					informacion = "El polígono representado está formado por " + rangofilas + " filas y por " + rangocolums + 
+					" y se ha utilizado el carácter " + letraprint + " para representarlo. "; // Creamos mensaje
+					alert (informacion);
+				}
+			}
+
+			for (i = 0; i < rangofilas; i++) { // Recorremos filas
+				for (j = 0; j < rangocolums; j++) { // Recorremos columnas
+					if (rangocolumns - 1 == j) { // Cuando llega al último elemento de la fila se hace salto de linea
+						visualizador += letraprint + "<br>";
+					} else { // Si no simplemente se escribe la letraprint
+						visualizador += letraprint;
+					}
+				}
+			}
+
+			document.write(Poligono.informacion); // Sacamos la información de abajo.
+
+		</script>
+	</center>
+</body>
+</html>
