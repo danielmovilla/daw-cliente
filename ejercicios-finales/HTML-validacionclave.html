@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validando usuario y clave</title>
+</head>
+<body>
+    <label for="">Usuario: </label><input type="text" name="perfil" value=""><br><br>
+    <label for="">Clave: </label><input type="text" name="perfil" value=""><br><br>
+    <input type="button" value="Validar" onclick="Validar()">   <input type="button" value="Cancelar" onclick="Cancelar()">
+    <script>
+
+        // RAUL HERNANDEZ
+
+        // Capturo user y pass
+        var user = document.getElementsByTagName('input')[0];
+        var pass = document.getElementsByTagName('input')[1];
+        
+        // Comprueba si cadena contiene letras mayusculas
+        function tieneMayus(cadena) {
+            mayusculas = ["A","B","C","D","E","F","G","H","I","J","K","M","N","Ñ","L","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+            for (let i = 0; i < cadena.length; i++) {
+                for (const value of mayusculas) {
+                    if (cadena[i]==value) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        // Comprueba si cadena contiene simbolos
+        function tieneSimbol(cadena) {
+            simbolos = [".","-",",","_",";",":","!","@"," ", "=", "(", ")", "/", "$", "%", "&", "?", "¿", "\"", "#"];
+            for (let i = 0; i < cadena.length; i++) {
+                for (const value of simbolos) {
+                    if (cadena[i]==value) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        // Comprueba si cadena contiene numeros
+        function tieneNum(cadena) {
+            numeros = ["0","1","2","3","4","5","6","7","8","9"];
+            for (let i = 0; i < cadena.length; i++) {
+                for (const value of numeros) {
+                    if (cadena[i]==value) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        // Comprueba si cadena contiene letras minusculas
+        function tieneMinus(cadena) {
+            minusculas = ["a","b","c","d","e","f","g","h","i","j","k","m","n","ñ","l","o","p","q","r","s","t","u","v","w","x","y","z"];
+            for (let i = 0; i < cadena.length; i++) {
+                for (const value of minusculas) {
+                    if (cadena[i]==value) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+
+        function Validar() {
+            error=false;
+            msg="";
+            
+            if (tieneMayus(user.value)) {
+                msg +="El usuario no puede contener letras mayusculas \n";
+                error=true;
+            }
+
+            if (tieneSimbol(user.value)) {
+                msg +="El usuario no puede contener simbolos \n";
+                error=true;
+            }
+
+            // Compruebo si la contraseña incluye los caracteres requeridos (Mayuscula, Minuscula, Letra y Numero)
+            if (tieneMayus(pass.value)&&tieneMinus(pass.value)&&tieneNum(pass.value)&&tieneSimbol(pass.value)) {
+                if (!error) {
+                    alert("Los datos se han almacenado correctamente");
+                }
+            }else{
+                msg += "La contraseña debe incluir Mayuscula, Minuscula, Numero, Simbolo"
+                error=true;
+            }
+
+            // Si hay algun error muestro los mensajes de error
+            if (error) {
+                alert(msg)
+            }
+        }
+
+        function Cancelar() {
+            alert("Vas a cancelar la validacion");
+            // Limpio los campos
+            user.value="";
+            pass.value="";
+        }
+    </script>
+</body>
+</html>
+

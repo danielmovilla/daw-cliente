@@ -1,0 +1,181 @@
+<!--Validar a través de unicode que  nombre de usuario tenga al menos una mayúscula, y que
+contraseña tenga una longitud mayor o igual a 5 caracteres, tenga al menos una mayúscula, 
+al menos una minúscula, al menos un número y al menos un caracter especial. Hacer solamente
+usando unicode y caracteres especiales con string.-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de usuarios</title>
+    <style>
+        .encabezado{
+            margin:auto;
+            padding:20px;
+            text-align: center;
+            color:aliceblue;
+            background-color: blue;
+        }
+        .formulario{
+            margin:auto;
+            padding:20px;
+            text-align: center;
+            color:blue;
+            background-color:aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="encabezado">
+        <h1>Registro de usuarios</h1>
+    </div>
+    <div class="formulario">
+        <form action="">
+            <p>
+                <label for="">Nombre: </label>
+                <input type="text">
+            </p>
+            <p>
+                <label for="">Contraseña: </label>
+                <input type="text">
+            </p>
+            <p>
+                <textarea name="resultado" cols="20" rows="10"></textarea>
+            </p>
+            <input type="button" name="boton" value="REGISTRAR" onclick="registrarDatos()">
+            <input type="button" name="boton2" value="TERMINAR" onclick="terminar();">
+        </form>
+    </div>
+    <script>
+        //Variables globales de mayúsculas, para todas las funciones
+        var mayusculaA="A";
+        var mayusculaZ="Z";
+        //Variables globales de minúsculas, para todas las funciones
+        var minusculaA="a";
+        var minusculaZ="z";
+        //Variables globales de números, para todas las funciones
+        var numeroInicial="0";
+        var numeroFinal="9";
+        //booleano global que indica que los datos se han registrado correctamente
+        var nombreRegistrado=false;
+        var contraRegistrada=false;
+        //Variables globales de nombre y contra
+        var nombre;
+        var contra;
+        //Variable global de caracteres especiales
+        var caracteresEspe=",.-;:_´ç¨Ç{}`+^*[]ºª!·$%&/()=?¿@#|¬€";
+        function registrarDatos(){
+            registrarNombre();
+            registrarContra();
+            if((nombreRegistrado==true)&&(contraRegistrada==true)){
+                alert("Datos registrados correctamente");
+                document.getElementsByTagName("textarea")[0].value="Los datos registrados son los siguientes:\n Nombre: "+nombre+"\nContraseña: "+contra;
+                limpiar();
+            }
+            
+        }
+        function registrarNombre(){
+            //Verificamos que nombre de usuario tenga al menos una mayúscula con unicode
+            
+            var esMayuscula=false;
+            //Debug mayúsculas
+            //console.log(mayusculaA.charCodeAt(0));
+            //console.log(mayusculaZ.charCodeAt(0));
+            nombre=document.getElementsByTagName("input")[0].value;
+            if((nombre=="") || (nombre==undefined)|| (nombre==null)){
+                document.getElementsByTagName('input')[0].value="";
+                alert("Vuelva a introducir el nombre con el formato adecuado");
+                end;
+            }
+            for(let i=0;i<nombre.length;i++){
+                var caracter=nombre.charAt(i);
+                console.log(caracter.charCodeAt(0));
+                if((caracter.charCodeAt(0)>=mayusculaA.charCodeAt(0))&&(caracter.charCodeAt(0)<=mayusculaZ.charCodeAt(0))){
+                    esMayuscula=true;
+                    nombreRegistrado=true;
+                }
+            }
+            if(esMayuscula==false){
+                alert("Nombre de usuario debe tener al menos una  mayúscula");
+            }
+        }
+        function registrarContra(){
+            
+            //Verificamos que contraseña tenga una longitud mayor o igual a 5
+            var longitudValida=false;
+            contra=document.getElementsByTagName("input")[1].value;
+            if((contra=="") || (contra==undefined)|| (contra==null)){
+                document.getElementsByTagName('input')[1].value="";
+                alert("Vuelva a introducir la contraseña con el formato adecuado");
+                end;
+            }
+            if(contra.length>=5){
+                longitudValida=true;
+            }
+            //Verificamos que contraseña tenga al menos una mayúscula
+            var esMayuscula_=false;
+            for(let i=0;i<contra.length;i++){
+                var caracter2=contra.charAt(i);
+                console.log(caracter2.charCodeAt(0));
+                if((caracter2.charCodeAt(0)>=mayusculaA.charCodeAt(0))&&(caracter2.charCodeAt(0)<=mayusculaZ.charCodeAt(0))){
+                    esMayuscula_=true;
+                }
+            }
+            //Verificamos que contraseña tenga al menos una minúscula
+            var esMinuscula=false;
+            for(let j=0;j<contra.length;j++){
+                var caracter3=contra.charAt(j);
+                console.log(caracter3.charCodeAt(0));
+                if((caracter3.charCodeAt(0)>=minusculaA.charCodeAt(0))&&(caracter3.charCodeAt(0)<=minusculaZ.charCodeAt(0))){
+                    esMinuscula=true;
+                }
+            }
+            //Verificamos que contraseña tenga al menos un número
+            var esNumero=false;
+            for(let k=0;k<contra.length;k++){
+                var caracter4=contra.charAt(k);
+                console.log(caracter4.charCodeAt(0));
+                if((caracter4.charCodeAt(0)>=numeroInicial.charCodeAt(0))&&(caracter4.charCodeAt(0)<=numeroFinal.charCodeAt(0))){
+                    esNumero=true;
+                }
+            }
+            //Verificamos que contraseña tenga al menos un caracter especial
+            var esEspe=false;
+            for(let l=0;l<contra.length;l++){
+                var caracter5=contra.charAt(l);
+                if(caracteresEspe.includes(caracter5)==true){
+                    esEspe=true;
+                }
+            }
+            if (longitudValida==false){
+                alert("La contraseña debe ser mayor o igual a 5 caracteres");
+            }else if(esMayuscula_==false){
+                alert("La contraseña debe tener al menos una mayúscula");
+            }else if(esMinuscula==false){
+                alert("La contraseña debe tener al menos una minúscula");
+            }else if(esNumero==false){
+                alert("La contraseña debe tener al menos un número");
+            }else if(esEspe==false){
+                alert("La contraseña debe tener al menos un caracter especial");
+            }else{
+                contraRegistrada=true;
+            }
+
+        }
+        function limpiar(){
+            //Limpia las cajas excepto el textarea
+            document.getElementsByTagName("input")[0].value="";
+            document.getElementsByTagName("input")[1].value="";
+        }
+        function terminar(){
+            alert("Ha interrumpido el registro de datos");
+            //Limpia todas las cajas incluido el textarea
+            document.getElementsByTagName("input")[0].value="";
+            document.getElementsByTagName("input")[1].value="";
+            document.getElementsByTagName("textarea")[0].value="";
+            end;
+        }
+    </script>
+</body>
+</html>
