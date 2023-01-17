@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Validando usuario y clave | DMG </title>
+</head>
+<body>
+    <label for="">Usuario: </label><input type="text" id="cjausuario" value=""><br><br>
+    <label for="">Clave: </label><input type="text" id="cjaclave" value=""><br><br>
+    <input type="button" value="Validar" onclick="validar()">   <input type="button" value="Cancelar" onclick="cancelar()">  
+    
+    <script>
+        function validar() {
+
+        var claveMayusculas = false; // Para comprobar que la clave contiene una mayúscula
+        var claveMinusculas = false; // Para comprobar que la clave contiene una minúscula
+        var claveNumeros = false; // Para comprobar que la clave tiene un número
+        var claveOtros = false; // Para comprobar que la clave tiene un carácter especial
+    
+        var correctoUsuario = true; // Está correcto el usuario
+        var correctoClave = false; // Está correcto la clave
+
+        // const arrayMayusculas = ("A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+        const arrayMayusculas = ("ABCDEFGHIJKLMNÑOPQRSTUVWXYZ");
+        const arrayMinusculas = ("abcdefghijklmnñopqrstuvwxyz");
+        const arrayNumeros = ("0123456789");
+        usuario = document.getElementById("cjausuario").value;
+        clave = document.getElementById("cjaclave").value;
+
+        for (i = 0; i < usuario.length; i++) { // Tenemos la longitud del usuario
+            for (j = 0; j < arrayMayusculas.length; j++) {
+
+                if (correctoUsuario = true) {
+                    if (usuario.charAt(i) == arrayMayusculas[j]) {
+                    correctoUsuario = false;
+                    }
+                }
+            }
+        }
+
+        alert("Boolean usuario: " + correctoUsuario);
+
+        for (k = 0; k < clave.length; k++) { // Tenemos la longitud de la clave
+
+            for (l = 0; l < arrayMayusculas.length; l++) { // Tenemos la longitud del array de las mayúsculas
+
+            if (claveMayusculas == false) { // Si no cumple la condición entra al if anidado, si no, no entra.
+                if (clave.charAt(i) == arrayMayusculas[l]) { // Comprobación de mayúsculas
+                        claveMayusculas = true; // Se pone a true; si hay mayúsculas
+                }
+            }
+
+            if (claveMinusculas == false) { // Si no cumple la condición entra al if anidado, si no, no entra.
+                    if (clave.charAt(i) == arrayMinusculas[l]) { // Comprobación de minusculas
+                        claveMinsculas = true; // Se pone a true; si hay minúsculas
+                }
+            }
+            }
+
+            for (m = 0; m < arrayNumeros.length; m++) {
+                if (claveNumeros == false) { // Si no cumple la condición entra al if anidado, si no, no entra.
+                    if (clave.charAt(i) == arrayNumeros[m]) { // Comprobación de números
+                        claveNumeros = true; // Se pone a true; si hay números
+                }
+            }
+
+            }
+        }
+
+        alert ("Boolean clave mayúsculas: " + claveMayusculas);
+        alert ("Boolean clave minusculas: " + claveMinusculas);
+        alert ("Boolean clave números: " + claveNumeros);
+
+        if (claveMayusculas == true && claveMinusculas == true && claveNumeros == true && claveOtros == true) {
+            correctoClave = true; // Comprobamos que cumple la clave todas las condiciones y damos el true
+        }
+
+        if (correctoUsuario == true && correctoClave == true) {
+            alert ("Todo correcto, la clave y el usuario son válidos.")
+        } else {
+            alert ("Incorrecto, fallo en la clave o en el usuario")
+        }
+
+        }
+
+        function cancelar() {
+            alert ("¿Está seguro de que quiere cancelar?");
+        }
+
+    </script>
+</body>
+</html>
