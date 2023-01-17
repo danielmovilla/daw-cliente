@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batería 03 - Ejercicio 02</title>
+</head>
+<body>
+<label for="name"> Introduce una palabra </label>
+<input type="text" id="lista" name="lista" /> 
+<button onclick="visualizar()">Carácter Aleatorio...</button>
+<button onclick="visualizar2()">Carácter Aleatorio 2...</button>
+<input type="text" id="salida" name="salida" />
+<script>
+        function visualizar() {
+
+            var texto = new String(document.getElementById("lista"));
+            let longitud = document.getElementById("lista").value.length;
+            let numero = Math.floor(Math.random()  * (longitud - 1));
+            document.getElementById("salida").value = texto.charAt(numero);
+            
+        }
+        function visualizar2() {
+            let numero2 = Math.floor(Math.random()  * (numero-1));
+            document.getElementById("salida").value = texto.charAt(numero);
+        }
+</script>
+</body>
+</html>

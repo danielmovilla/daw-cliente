@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Tienes 18 años?</title>
+</head>
+
+<body>
+    <script>
+        actual = Date.now();
+        limite = actual - 567648000000; // 18 años
+
+        let ano = parseInt(prompt("Introduce tu año de nacimiento"));
+        let mes = parseInt(prompt("Introduce tu mes de nacimiento"));
+        let dia = parseInt(prompt("Introduce tu día de nacimiento"));
+
+        mes--;
+        usuario = Date.UTC(ano, mes, dia);
+
+        if (limite > usuario) {
+            document.write("Eres mayor, pasa :)")
+        } else {
+            document.write("Eres menor, fuera de aquí!")
+        }
+    </script>
+</body>
+
+</html>

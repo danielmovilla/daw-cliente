@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Edades y categorías </title>
+</head>
+<body>
+    <h3> Introduce tu fecha de nacimiento </h3>
+    <input type="date" name="fecha"> 
+    <label for=""> Tu categoría es... </label> <input type="text" id="grupo"> <br><br>
+    <button name="comienzo" onclick="grupos()"> Saber tu categoría </button>
+    <script>
+        function grupos() {
+            var categoria = "grgr" ; 
+
+            const fecha = document.querySelector('input[type="date"]');
+            console.log(fecha.value); 
+            console.log(fecha.valueAsNumber); 
+            fechaEdad = fecha.valueAsNumber;
+            alert ("gerg" + fechaEdad);
+
+            if (fechaEdad < 252460800000 - 1) { // Entre 8 años hacia abajo en ms
+                categoria += "Lo sentimos, no puedes competir ";
+            }
+            if (fechaEdad >= 252460800000 && fechaEdad <= 315576000000) { // Entre 8 y 10 años en ms
+                categoria = "Benjamín (8-9 años)";
+            }
+            if (fechaEdad >= 315576000000 + 1 && fechaEdad <= 378691200000 - 1) { // Entre 10 y 12 años en ms
+                categoria = "Alevín (10-11 años)";
+            }
+            if (fechaEdad >= 378691200000 + 1 && fechaEdad <=  441806400000 - 1) { // Entre 12 y 14 años en ms
+                categoria = "Infantil (12-13 años)";
+            }
+            if (fechaEdad >= 441806400000 + 1 && fechaEdad <= 504921600000 - 1) { // Entre 14 y 16 años en ms
+                categoria = "Cadete (14-15 años)";
+            }
+            if (fechaEdad >= 504921600000 + 1 && fechaEdad <= 568036800000 - 1) { // Entre 16 y 18 años en ms
+                categoria = "Juvenil (16-17 años)";
+            }
+            if (fechaEdad >= 568036800000 + 1 && fechaEdad <= 631152000000 - 1) { // Entre 18 y 20 años en ms
+                categoria = "Junior (18-19 años)";
+            }
+            if (fechaEdad >= 631152000000 + 1 && fechaEdad <= 725824800000 - 1) { // Entre 20 y 23 años en ms
+                categoria = "Promesa (20-22 años)";
+            }
+
+            console.log(categoria);
+            alert(categoria);
+
+            document.getElementById(grupo).value += categoria;
+        }
+    </script>  
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ejercicios previos al examen </title>
+</head>
+<body>
+    <label for=""> Texto a cifrar: </label><input type="text" id="Texto"><br><br>
+    <label for=""> Clave polialfabética: </label><input type="text" id="cjaclave"><br><br>
+    <label for=""> Texto cifrado: </label><input type="text" id="cjaTcifrado"><br><br>
+    <input type="button" value="CIFRAR" onclick="cifrar()">
+    <script>
+        var textocifrado = "";
+        function cifrar () {
+            let texto = document.getElementById("Texto").value;
+            let clave = document.getElementById("cjaclave").value;
+            let i = 0; // Se encarga de recorrer el texto
+
+            for (let letra of texto) {
+                let cifra = letra.charCodeAt(letra) + Number(clave.charAt(i));
+                textocifrado = textocifrado + String.fromCharCode(cifra);
+
+                i++;
+                // Si llega al final de la clave empieza de nuevo.
+                if (i == clave.length) i = 0;
+            }
+            document.getElementById("cjaTcifrado").value = textocifrado;
+        }
+
+    </script>
+</body>
+</html>

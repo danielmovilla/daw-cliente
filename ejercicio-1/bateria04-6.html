@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Batería 04 - Tablas de multiplicar</title>
+</head>
+<body>
+    <button id="boton" onclick="aleatorios()"> Tablica de multiplicar</button>
+    <script>
+        function aleatorios() {
+            var numero = 0;
+            let multiplo = 0;
+            var resultado = 0;
+            var contador = 0;
+
+            numero = Math.floor(Math.random() * 10) + 1;
+            
+            document.write("<table align='center' border='1'>");
+
+            document.write("<h2 align='center' border='2'> TABLAS DE MULTIPLICAR </h2>")
+
+            document.write("<th bgcolor='blue'>");
+                document.write("Número");
+            document.write("</th>");
+            document.write("<th bgcolor='crimson'>");
+                document.write("Resultado")
+            document.write("</th>");
+
+
+            do {
+
+                document.write("<tr>");
+                    document.write("<td> " + numero + " * " + multiplo + " </td>");
+                    resultado = ( numero * multiplo );
+                    document.write("<td> " + resultado + " </td>");
+                document.write("</tr>");
+
+                multiplo++;
+
+            } while (multiplo < 12);
+
+            document.write("</table>");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batería 03 - Ejercicio 01</title>
+</head>
+<body>
+    <script>
+        let numeros = 0; // contador de números introducidos
+        let total = 0; // total de datos
+        let usuario = 1; // lo que introduce el usuario
+
+        // if (usuario == "" || usuario == isNaN) {
+        //     document.write("Introduce un número");
+        // } else {
+        //     let usuario = parseInt(prompt("Introduce un número"))
+        //     numeros++;
+        //     total = total + usuario
+        // }        
+
+        // if (usuario == 0) {
+        //     total = (total / numeros);
+        //     alert("La media es " + total);
+        // }
+
+        while (usuario != 0) {
+            let usuario = parseInt(prompt("Introduce un número"))
+            numeros++;
+            total = total + usuario;
+        }
+        numeros--;
+        total = (total / numeros);
+        alert("La media es " + total);
+    </script>
+</body>
+</html>

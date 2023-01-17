@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Biblioteca </title>
+</head>
+<body>
+    <h1> La bibloteca --- v.0</h1>
+    <label for=""> Título: </label><input type="text" id="titulo"><br><br>
+    <label for=""> Autor: </label><input type="text" id="autor"><br><br>
+    <label for=""> Editorial: </label><input type="text" id="editorial"><br><br>
+    <label for=""> Año edición: </label><input type="date" id="agno-edicion"><br><br>
+    <input type="button" value="Guardar" onclick="guardar()"/> 
+    <input type="button" value="Visualizar" onclick="visualizar()"/> <br>
+    <h3> Texto de salida: </h3>  <textarea type="text" cols="10" rows="5" id="salida"><br><br>
+
+    <script>
+        function guardar () {
+            alert("Tu libro ha sido guardado.");
+
+            let titulo = document.getElementById("titulo");
+            let autor = document.getElementById("autor");
+            let editorial = document.getElementById("editorial");
+            let agno_edicion = document.getElementById("agno-edicion");
+
+            this.titulo = titulo;
+            this.autor = autor;
+            this.editorial = editorial;
+            this.agno_edicion = agno_edicion;
+
+            const libro = ["","","",""];
+            libro.push(titulo);
+            libro.push(autor);
+            libro.push(editorial);
+            libro.push(agno_edicion);
+            
+            alert(libro[0]);
+        }
+
+        function visualizar() {
+            titulo += salida;
+            autor += salida;
+            editorial += salida;
+            agno_edicion += salida;
+            document.getElementById("salida").value = salida;
+        }
+    </script>
+
+</body>
+</html>

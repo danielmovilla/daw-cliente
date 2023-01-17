@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Batería 04 - Lotería primitiva </title>
+</head>
+
+<body>
+    <button id="boton" onclick="loteria()"> Generar lotería </button>
+    <script>
+        function loteria() {
+            let contador = 1;
+            var cont1 = 0;
+            var cont2 = 0;
+            var cont3 = 0;
+            var cont4 = 0;
+            var cont5 = 0;
+            var cont6 = 0;
+ 
+            do {
+                numero = Math.floor(Math.random() * 50) + 1;
+
+                if (numero == cont1 | numero == cont2 | numero == cont3 | numero == cont4 | numero == cont5 | numero == cont6) {
+                    numero = -1;
+                } else {
+                       switch (contador) {
+                        case 1: 
+                        cont1 = numero; 
+                        break;
+                        case 2: cont2 = numero; break;
+                        case 3: cont3 = numero; break;
+                        case 4: cont4 = numero; break;
+                        case 5: cont5 = numero; break;
+                        case 6: cont6 = numero; break;
+                        default: break;
+                    }
+                    contador++;
+                }
+            } while (contador < 7);
+
+            document.write("<table border='1'>");
+
+                document.write("<th>");
+                    document.write("Números");
+                document.write("</th>");
+                document.write("<th>");
+                    document.write("Veces repetidas")
+                document.write("</th>");
+
+                document.write("<tr>");
+                    document.write("<td> Número 1 </td>");
+                    document.write("<td> " + cont1 + " </td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                    document.write("<td> Número 2 </td>");
+                    document.write("<td> " + cont2 + " </td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                    document.write("<td> Número 3 </td>");
+                    document.write("<td> " + cont3 + " </td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                    document.write("<td> Número 4 </td>");
+                    document.write("<td> " + cont4 + " </td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                    document.write("<td> Número 5 </td>");
+                    document.write("<td> " + cont5 + " </td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                    document.write("<td> Número 6 </td>");
+                    document.write("<td> " + cont6 + " </td>");
+                document.write("</tr>");
+            document.write("</table>");
+        }
+
+        for (let k = 0; k < 50; k++) {
+            document.write(k + ":")
+            loteria();
+        }
+        </script>
+    </body>
+</html>

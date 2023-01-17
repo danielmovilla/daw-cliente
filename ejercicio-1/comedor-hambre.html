@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Menú de comidica</title>
+</head>
+<body>
+    <form action="#">
+        <label for="primerplato">Primer plato</label>
+        <select name="primerplato" id="primerplato">
+          <option value="garbanzos"> Garbanzos </option>
+          <option value="arroz"> Arroz con bogavante</option>
+          <option value="guisantes"> Guisantes </option>
+          <option value="alubias"> Alubias </option>
+        </select> <br>
+        <label for="segundoplato">Segundo plato</label>
+        <select name="segundoplato" id="segundoplato">
+          <option value="lubina"> Lubina </option>
+          <option value="entrecot"> Entrecot con patatas </option>
+          <option value="tortilla"> Tortilla de Patatas </option>
+          <option value="lenguado"> Lenguado </option>
+        </select> <br>
+        <form>
+            <input type="radio" id="postre" name="eleccionpostre" value="postre">
+            <label for="postre"> Postre </label><br>
+            <input type="radio" id="cafe" name="eleccionpostre" value="cafe">
+            <label for="cafe"> Café </label><br>
+            <input type="radio" id="fruta" name="eleccionpostre" value="fruta">
+            <label for="fruta"> Fruta </label><br>
+          </form>
+        <input type="submit" value="Enviar comidica" onclick="comidica()"/>
+    </form>
+    <script>
+        function comidica() {
+            alert ("Primer plato: " + document.getElementsByName(primerplato[0]) + "\n"
+                + "Segundo plato: " + segundoplato + "\n"
+                + "Postre: " + document.getElementsByName("eleccionpostre")[0].value)
+        }
+
+    </script>
+</body>
+</html>

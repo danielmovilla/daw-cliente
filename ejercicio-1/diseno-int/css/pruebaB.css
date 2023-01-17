@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 2em;
+    font-family: sans-serif;
+    background-color: burlywood;
+}
+
+.grid-contenedor {
+    display: grid;
+    grid-template-columns: repeat(4.1fr);
+    grid-template-rows: 20% 500px 20%;
+    justify-items: center;
+    align-items: center;
+
+    grid-template-areas: 
+    "header header header header"
+    "main   main   .      aside"
+    "footer footer footer footer";
+
+    background-color: aquamarine;
+    border-radius: 10px;
+    border: solid 2px goldenrod;
+}
+
+.item-cabecera {
+    grid-area: header;
+}
+
+.item-footer {
+    grid-area: footer;
+}
+
+.item-aside {
+    grid-area: aside;
+}
+
+.item-main {
+    grid-area: main;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batería 04 - Ejercicio 04</title>
+</head>
+
+<body>
+    <button id="boton" onclick="aleatorios()"> Generar aleatorios </button>
+    <script>
+        function aleatorios() {
+            let contador = 0;
+            var cont1 = 0;
+            var cont2 = 0;
+            var cont3 = 0;
+            var cont4 = 0;
+            var cont5 = 0;
+            var cont6 = 0;
+            var cont7 = 0;
+            var cont8 = 0;
+            var cont9 = 0;
+            var cont10 = 0;
+            do {
+                numero = Math.floor(Math.random() * 10) + 1;
+                switch (numero) {
+                    case 1: cont1++; break;
+                    case 2: cont2++; break;
+                    case 3: cont3++; break;
+                    case 4: cont4++; break;
+                    case 5: cont5++; break;
+                    case 6: cont6++; break;
+                    case 7: cont7++; break;
+                    case 8: cont8++; break;
+                    case 9: cont9++; break;
+                    case 10: cont10++; break;
+                    default:
+                        break;
+                }
+                contador++;
+            } while (contador < 10000);
+
+            document.write("<table border='1'>");
+
+                document.write("<th>");
+                    document.write("Números");
+                document.write("</th>");
+                document.write("<th>");
+                    document.write("Veces repetidas")
+                document.write("</th>");
+
+                document.write("<tr>");
+                    document.write("<td> Número 1 </td>");
+                    document.write("<td> " + cont1 + " </td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                    document.write("<td> Número 2 </td>");
+                    document.write("<td> " + cont2 + " </td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                    document.write("<td> Número 3 </td>");
+                    document.write("<td> " + cont3 + " </td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                    document.write("<td> Número 4 </td>");
+                    document.write("<td> " + cont4 + " </td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                    document.write("<td> Número 5 </td>");
+                    document.write("<td> " + cont5 + " </td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                    document.write("<td> Número 6 </td>");
+                    document.write("<td> " + cont6 + " </td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                    document.write("<td> Número 7 </td>");
+                    document.write("<td> " + cont7 + " </td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                    document.write("<td> Número 8 </td>");
+                    document.write("<td> " + cont8 + " </td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                    document.write("<td> Número 9 </td>");
+                    document.write("<td> " + cont9 + " </td>");
+                document.write("</tr>");
+                document.write("<tr>");
+                    document.write("<td> Número 10 </td>");
+                    document.write("<td> " + cont10 + " </td>");
+                document.write("</tr>");
+            document.write("</table>");
+        }
+    </script>
+</body>
+</html>

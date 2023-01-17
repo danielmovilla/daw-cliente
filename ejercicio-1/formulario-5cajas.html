@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="">Caja 1 - Marca: </label><input type="text" id="cajita1" value=""><br><br>
+        <label for="">Caja 2 - Ruedas: </label><input type="text" id="cajita2" value=""><br><br>
+        <label for="">Caja 3 - Color: </label><input type="text" id="cajita3" value=""><br><br>
+        <label for="">Caja 4 - Motor - Tamaño: </label><input type="text" id="cajita4" value=""><br><br>
+        <label for="">Caja 5 - Motor - Cilindros: </label><input type="text" id="cajita5" value=""><br><br>
+        <input type="button" value="Validar" onclick="validar()">  <input type="button" value="Cancelar" onclick="cancelar()">  
+    </form>
+    <script>
+        function validar () {
+            var miAuto = new Object();
+            miAuto.marca = "Ford";
+            miAuto.ruedas = "4";
+            miAuto.color = "Rojo";
+            miAuto.tamagno = 2;
+            miAuto.cilindros = 3;
+
+            document.getElementById("cajita1").value = miAuto.marca;
+            document.getElementById("cajita2").value = miAuto.ruedas;
+            document.getElementById("cajita3").value = miAuto.color;
+            document.getElementsByTagName("cajita4")[3] = miAuto.tamagno;
+            document.getElementsByTagName("cajita5")[4] = miAuto.cilindros;
+        
+            ///////////    
+        
+        }
+        function cancelar () {
+
+        }
+        function Persona (nombre, edad, sexo) {
+            this.nombre = nombre;
+            this.edad = edad;
+            this.sexo = sexo;
+
+            var fer = new Persona ("Fernando", 22, "H");
+            var alvaro = new Persona ("Alvaro", 23, "M");
+        }
+    </script>
+</body>
+</html>

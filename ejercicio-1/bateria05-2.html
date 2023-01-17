@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Batería 05 - Asteriscos (V.2) </title>
+</head>
+<body>
+    <button id="boton" onclick="asteriscosV2()"> Asteriscos V.2 </button>
+    <textarea id="area" cols="60" rows="20"> </textarea>
+    <script>
+        function asteriscosV2 () {
+        var asterisco = " |*|";
+        const arrayNumeros = Array(20);
+        function asteriscosV2() {
+
+            for (i = 0; i < 20; i++) {
+                numero = Math.floor(Math.random() * 50) + 1;
+                arrayNumeros[i] = numero;
+            }
+
+            for (k = 0; k < arrayNumeros.length(); k++) {
+                for (j = 0; j < arrayNumeros[k].length(); j++) {
+                document.getElementById('area').value += "*";
+                }
+            }
+
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 4</title>
+</head>
+<body>
+    <button id="boton" onclick="tomarAleatoria()">Generar combinación</button>
+    <script>
+        function tomarAleatoria(){
+            var contador1=0, contador2 = 0, cont3 = 0, cont4 = 0, cont5 = 0, cont6 = 0, cont7 = 0, cont8 = 0, cont9 = 0, cont10 = 0;
+
+            for(let i=0;i<10000;i++){
+                var numero=Math.floor(Math.random()*(10-1)+1);
+                switch(numero){
+                    case 1:
+                        contador1++;
+                        break;
+                    case 2:
+                        contador2++;
+                        break;
+                    case 3:
+                        contador3++;
+                        break;
+                    case 4:
+                        contador4++;
+                        break;
+                    case 5:
+                        contador5++;
+                        break;
+                    case 6:
+                        contador6++;
+                    break;
+                    case 7:
+                        contador7++;
+                        break;
+                    case 8:
+                        contador8++;
+                        break;
+                    case 9:
+                        contador9++;
+                        break;
+                    case 10:
+                        contador10++;
+                        break;
+                    default:
+                        console.log("Valor desconocido");
+                }
+            }
+
+            document.write("<table border='1'>");
+            document.write("<th>");
+            document.write("FRECUENCIAS");
+            document.write("</th>");
+            for(let i=0;i<10;i++){
+                if(i==1){
+                    document.write("<tr>"); 
+                    document.write("<td>Numero "+i+"</td>");
+                    document.write("<td>"+contador1+"</td>");
+                    document.write("</tr>");
+                }else if(i==2){
+                    document.write("<tr>"); 
+                    document.write("<td>Numero "+i+"</td>");
+                    document.write("<td>"+contador2+"</td>");
+                    document.write("</tr>");
+                }else if(i==3){
+                    document.write("<tr>"); 
+                    document.write("<td>Numero "+i+"</td>");
+                    document.write("<td>"+contador3+"</td>");
+                    document.write("</tr>");
+                }else if(i==4){
+                    document.write("<tr>"); 
+                    document.write("<td>Numero "+i+"</td>");
+                    document.write("<td>"+contador4+"</td>");
+                    document.write("</tr>");
+                }else if(i==5){
+                    document.write("<tr>"); 
+                    document.write("<td>Numero "+i+"</td>");
+                    document.write("<td>"+contador5+"</td>");
+                    document.write("</tr>");
+                }else if(i==6){
+                    document.write("<tr>"); 
+                    document.write("<td>Numero "+i+"</td>");
+                    document.write("<td>"+contador6+"</td>");
+                    document.write("</tr>");
+                }else if(i==7){
+                    document.write("<tr>"); 
+                    document.write("<td>Numero "+i+"</td>");
+                    document.write("<td>"+contador7+"</td>");
+                    document.write("</tr>");
+                }else if(i==8){
+                    document.write("<tr>"); 
+                    document.write("<td>Numero "+i+"</td>");
+                    document.write("<td>"+contador8+"</td>");
+                    document.write("</tr>");
+                }else if(i==9){
+                    document.write("<tr>"); 
+                    document.write("<td>Numero "+i+"</td>");
+                    document.write("<td>"+contador9+"</td>");
+                    document.write("</tr>");
+                }else if(i==10){
+                    document.write("<tr>"); 
+                    document.write("<td>Numero "+i+"</td>");
+                    document.write("<td>"+contador10+"</td>");
+                    document.write("</tr>");
+                }
+            }
+            
+            document.write("</table>");
+        }
+    </script>
+</body>
+</html>

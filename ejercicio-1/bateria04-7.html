@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Batería 04 - Arrays Inversos</title>
+</head>
+
+<body>
+
+
+  <h5> Introduce valores, cuando quieras dale al array inverso para obtenerlos en un array ordenado del último al
+    primero</h5>
+
+  <label for="valor">Número a introducir</label>
+  <input id="valor" type="number" name="valor" value="0" />
+
+  <button type="button" name="bto1" value="IntroduceValor" onclick="introduceValor()"> Introduce el valor </button>
+  <button type="button" onclick="valorInverso()"> Array inverso </button>
+
+  <p id="cajaTexto"></p>
+
+  <script>
+    var contador = 0;
+    var miArray = [];
+
+    function introduceValor() {
+      // document.getElementById('valor').value;
+      alert(this.valor.value);
+      miArray.push(document.getElementById('valor').value);
+    }
+
+    function valorInverso() {
+
+      document.write("<table align='center' border='1'>")
+      document.write("<th bgcolor='beige'>")
+      document.write("Tabla inversa")
+
+
+      for (let index = miArray.length; index < 0; index--) {
+
+        document.write("<tr>");
+        document.write("<td>" + miArray[index] + "</td>");
+        document.write("</tr>")
+        document.write("</table>")
+      }
+    }
+  </script>
+</body>
+
+</html>
